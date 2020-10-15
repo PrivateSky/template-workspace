@@ -55,21 +55,6 @@
             ]
         },
         {
-            "name": "ssapp-minimal-app",
-            "src": "https://github.com/PrivateSky/ssapp-minimal-app.git",
-            "actions": [
-                {
-                    "type": "smartClone",
-                    "target": ".",
-                    "collectLog": false
-                },
-                {
-                    "type": "execute",
-                    "cmd": "cd ssapp-minimal-app && npm install"
-                }
-            ]
-        },
-        {
             "name": "profile-ssapp-prototype",
             "src": "http://github.com/privatesky/profile-ssapp-prototype.git",
             "actions": [
@@ -98,36 +83,6 @@
                     "cmd": "cd web-server/secure-channels/loader && npm install"
                 }
             ]
-        },
-        {
-            "name": "themes/clear-sky-theme",
-            "src": "https://github.com/PrivateSky/clear-sky-theme.git",
-            "actions": [
-                {
-                    "type": "smartClone",
-                    "target": ".",
-                    "collectLog": false
-                },
-                {
-                    "type": "execute",
-                    "cmd": "cd themes/clear-sky-theme && npm install"
-                }
-            ]
-        },
-        {
-            "name": "themes/blue-fluorite-theme",
-            "src": "https://github.com/PrivateSky/blue-fluorite-theme.git",
-            "actions": [
-                {
-                    "type": "smartClone",
-                    "target": ".",
-                    "collectLog": false
-                },
-                {
-                    "type": "execute",
-                    "cmd": "cd themes/blue-fluorite-theme && npm install"
-                }
-            ]
         }
     ],
     "build": [
@@ -142,22 +97,20 @@
             ]
         },
         {
-            "name": "blue-fluorite-theme-wallet-build",
+            "name": "secure-channels_bind_to_menu-wallet-prototype",
             "src": "",
             "actions": [
                 {
                     "type": "execute",
-                    "cmd": "cd themes/blue-fluorite-theme && npm run build-dossier"
-                }
-            ]
-        },
-        {
-            "name": "clear-sky-theme-wallet-build",
-            "src": "",
-            "actions": [
+                    "cmd": "cd menu-wallet-prototype && npm run build"
+                },
                 {
-                    "type": "execute",
-                    "cmd": "cd themes/clear-sky-theme && npm run build-dossier"
+                    "type": "copy",
+                    "src": "./menu-wallet-prototype/seed",
+                    "target": "./web-server/secure-channels/wallet-template/seed",
+                    "options": {
+                        "overwrite": true
+                    }
                 }
             ]
         },
@@ -180,24 +133,6 @@
                 {
                     "type": "execute",
                     "cmd": "echo Use this folder template in order to customize the application instance by adding configuration, pages etc. > ./web-server/secure-channels/apps/profile-ssapp/readme"
-                }
-            ]
-        },
-        {
-            "name": "secure-channels_bind_to_menu-wallet-prototype",
-            "src": "",
-            "actions": [
-                {
-                    "type": "execute",
-                    "cmd": "cd menu-wallet-prototype && npm run build"
-                },
-                {
-                    "type": "copy",
-                    "src": "./menu-wallet-prototype/seed",
-                    "target": "./web-server/secure-channels/wallet-template/seed",
-                    "options": {
-                        "overwrite": true
-                    }
                 }
             ]
         }
