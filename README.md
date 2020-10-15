@@ -1,1 +1,1 @@
-# template-workspace
+# web-wallet
